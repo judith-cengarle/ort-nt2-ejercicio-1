@@ -18,6 +18,12 @@
     <br>
     <input type="text" class="form-control" v-model="clientDni" placeholder="Ingrese DNI: ">
     <br>
+
+    <div v-if="(nameSurname.length > 0 && nameSurname.length < 3) || 
+        (clientDni.length > 0 && clientDni.length < 3)" class="alert alert-danger" role="alert">
+        "Ha ingresado menos de tres caracteres."
+    </div>
+
     <div class="card-deck m-0">
         <div class="row">
             <div class="col" v-for="persona in personasFiltradas">
@@ -29,16 +35,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="col" v-for="persona in dniFiltrados">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">{{getNombreCompleto(persona)}}</h5>
-                        <p class="card-text">dni {{persona.dni}}</p>
-                        <a href="#" class="card-link">{{persona.correo}}</a>
-                    </div>
-                </div>
-            </div> -->
 
         </div>
     </div>
